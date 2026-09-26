@@ -1,0 +1,75 @@
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      background: #f4f8f4;
+      text-align: center;
+      padding: 40px;
+    }
+.quiz-box {
+        max-width: 600px;
+        margin: auto;
+        background: #176b3a69;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .score-box {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      background: #176b3a69;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #176b3a;
+    }
+ h3 {
+      color: #176b3a;
+    }
+
+    #score {
+      font-size: 28px;
+      font-weight: bold;
+      color: #176b3a;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #176b3a;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+</style>
+<div class="quiz-box">
+    <h3> <p style="font-family: 'Georgia', serif;">Q5:What is the official currency of Saudi Arabia?</p> </h3>
+            <p2>
+<div class="button"></div> 
+    <div id="answers">
+        <button class="answer" onclick="checkAnswer(true)">Riyal</button>
+        <button class="answer" onclick="checkAnswer(false)">Dirham</button>
+    </div>
+    <button onclick="location.href='file:///C:/Users/emmaw/OneDrive/Desktop/Untitled-1.html'">show results!</button>
+    <button onclick="location.href='file:///C:/Users/emmaw/OneDrive/Desktop/ND/page%20four/page%204.html'">go back</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkAnswer(isCorrect) {
+        document.getElementById("result").textContent = isCorrect ? "Correct!" : "Wrong answer. Try again!";
+        document.getElementById("result").style.color = isCorrect ? "green" : "crimson";
+    }
+   
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>page 5</title>
+</head>
+<body> 
+</body>
+</html>

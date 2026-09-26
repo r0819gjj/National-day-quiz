@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Score</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8f4;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .score-box {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      background: #176b3a69;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #176b3a;
+    }
+
+    #score {
+      font-size: 28px;
+      font-weight: bold;
+      color: #176b3a;
+    }
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 12px;
+      background: #176b3a;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="score-box">
+    <h1>Quiz Completed!</h1>
+    <p id="playerName"></p>
+    <p id="score"></p>
+    <button onclick="location.href='file:///C:/Users/emmaw/OneDrive/Desktop/ND/page%20six/final%20score.html'">go back</button>
+  </div>
+
+  <script>
+    const name = sessionStorage.getItem("playerName") || "Player";
+    const score = sessionStorage.getItem("score") || "0";
+
+    document.getElementById("playerName").textContent =
+      `Well done, ${name}!`;
+
+    document.getElementById("score").textContent =
+      `Your final score is ${score} out of 4.`;
+  </script>
+</body>
+</html>

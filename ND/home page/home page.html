@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>home page</title>
+  <style>
+     body {
+      font-family: Arial, sans-serif;
+      background: #f4f8f4;
+      text-align: center;
+      padding: 40px;
+    }
+.quiz-box {
+        max-width: 600px;
+        margin: auto;
+        background: #176b3a69;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .score-box {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      background: #176b3a69;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #176b3a;
+    }
+ h3 {
+      color: #176b3a;
+    }
+
+    #score {
+      font-size: 28px;
+      font-weight: bold;
+      color: #176b3a;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #176b3a;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+    <h1><p style="font-family: 'Georgia', serif;">National Day Quiz!</p></h1>
+    <h3> <p style="font-family: 'Georgia', serif;">test how much you know about your legendary country!</p> </h3>
+        <label for="playerName">Enter your name:</label>
+        <input id="playerName" type="text" maxlength="30" required>
+    <div class="button">
+            <button onclick="startQuiz()">Start!</button>
+    </div>
+    <div id="answers"></div>
+    <div id="result"></div>
+    <h6 style="color: darkgreen;">Made by: Aljoury ALzahrany
+        from the English department at Umm Al-Qura University</h6>
+<p style="color: #333333;"></p>
+  </body>
+    <script>
+        function startQuiz() {
+            const name = document.getElementById("playerName").value.trim();
+
+            if (!name) {
+                alert("Please enter your name.");
+                return;
+            }
+
+            sessionStorage.setItem("playerName", name);
+            sessionStorage.setItem("score", "0");
+            location.href = "../page one/page 1.html";
+        }
+    </script>
+</html>

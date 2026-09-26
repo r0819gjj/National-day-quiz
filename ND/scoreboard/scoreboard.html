@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Score</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8f4;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .score-box {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      background: #176b3a69;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #176b3a;
+    }
+
+    #score {
+      font-size: 28px;
+      font-weight: bold;
+      color: #176b3a;
+    }
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 12px;
+      background: #176b3a;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 28px;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #dce5dc;
+      text-align: left;
+    }
+
+    th {
+      color: #176b3a;
+    }
+  </style>
+</head>
+<body>
+  <div class="score-box">
+    <h1>Quiz Complete!</h1>
+    <p id="playerName"></p>
+    <p id="score"></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="scoreRows"></tbody>
+    </table>
+
+    <button onclick="location.href='../home page/home page.html'">
+      Play Again
+    </button>
+     <button onclick="location.href='file:///C:/Users/emmaw/OneDrive/Desktop/Untitled-1.html'">go back</button>
+  </div>
+
+  <script>
+    const name = sessionStorage.getItem("playerName") || "Player";
+    const score = Number(sessionStorage.getItem("score") || 0);
+    const storageKey = "quizScores";
+
+    document.getElementById("playerName").textContent =
+      `Well done, ${name}!`;
+
+    document.getElementById("score").textContent =
+      `Your final score is ${score} out of 4.`;
+
+    let scores = [];
+    try {
+      scores = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      if (!Array.isArray(scores)) scores = [];
+    } catch {
+      scores = [];
+    }
+
+    if (!history.state || !history.state.scoreSaved) {
+      scores.push({ name, score, date: Date.now() });
+      localStorage.setItem(storageKey, JSON.stringify(scores));
+      history.replaceState({ scoreSaved: true }, "");
+    }
+
+    scores.sort((first, second) => second.score - first.score);
+    scores.slice(0, 10).forEach((entry, index) => {
+      const row = document.createElement("tr");
+      [index + 1, entry.name, `${entry.score} / 4`].forEach((value) => {
+        const cell = document.createElement("td");
+        cell.textContent = value;
+        row.appendChild(cell);
+      });
+      document.getElementById("scoreRows").appendChild(row);
+    });
+  </script>
+</body>
+</html>
